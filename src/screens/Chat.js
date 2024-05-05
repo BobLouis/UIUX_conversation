@@ -66,7 +66,8 @@ const Chat = (props) => {
                     (
                         <ActivityIndicator size='small' color='#FFF'/>
                     ):(
-                        <Animated.View style={[pan.getLayout(),styles.card]}>
+                        // <Animated.View style={[pan.getLayout(), styles.card]}>
+                        <View style={styles.card}>
                             {
                                 data.map((item, index) => (
                                     <Profiles
@@ -75,8 +76,9 @@ const Chat = (props) => {
                                         uri={item.avatar_url}
                                     />
                                 ))
-                            }
-                        </Animated.View>
+                                }
+                        </View>
+                        // </Animated.View>
                     )
                 }
            </ScrollView>
@@ -91,7 +93,8 @@ const Chat = (props) => {
                         (
                             <ActivityIndicator size='large' color='#f20042'/>
                         ):(
-                            <Animated.View style={[list.getLayout(), styles.list]}>
+                               
+                                <View style={styles.list}>
                                 {
                                     data.map((item, index) => (
                                             <Messages
@@ -108,7 +111,8 @@ const Chat = (props) => {
                                                 }}
                                             />
                                     ))}
-                            </Animated.View>
+                            </View>
+
                         )}
                 </ScrollView>
            </View>
@@ -119,11 +123,12 @@ export default Chat;
 
 const styles = StyleSheet.create({
     list:{
-        marginTop:300,
+        marginTop:0,
     },
     card:{
-        marginLeft:400,
-        width:400,
+        marginLeft:50,
+        width: 400,
+        height: 100,
         flexDirection:'row'
     },
     gradient:{
@@ -149,10 +154,12 @@ const styles = StyleSheet.create({
         marginRight:-20,
         alignSelf:'center'
     },
-    ops:{
+    ops: {
+        marginTop:-600,
         borderTopLeftRadius:40,
         borderTopRightRadius:40,
-        height:500,
+        // height:500,
+        flex:1,
         backgroundColor:'#FFF',
         marginHorizontal:-20
     },
